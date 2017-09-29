@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {%if messages%}
+            {%for message in messages%}
+                <p>{{message}}</p>
+            {%endfor%}
+        {%endif%}
+        <h3>Registration</h3>
+        <form action = "/create" method = "post">
+            {%csrf_token%}
+            <p>First Name</p>
+            <input type = "text" name = "first_name" placeholder = "Enter first name here">
+            <p>Last Name</p>
+            <input type = "text" name = "last_name" placeholder = "Enter last name here">
+            <p>Alias</p>
+            <input type = "text" name = "alias" placeholder = "Enter alias">           
+            <p>Email</p>
+            <input type = "text" name = "email" placeholder = "Enter email address here">
+            <p>Password</p>
+            <input type = "text" name = "password" placeholder = "Enter password here">
+            <p>*Password should be at least 8 characters</p>
+            <p>Confirm Password</p>
+            <input type = "text" name = "c_password" placeholder = "Confirm password here">
+            <p>Birthday</p><input type = "date" name = "birthday">
+            <p><input type = "submit" value = "Register Here"></p>
+        </form>
+        <h3>Login here</h3>
+        <form action = "/login" method = "post">
+            {% csrf_token %}
+            <p>Email</p>
+            <input type = "text" name = "email" placeholder = "Enter you email">
+            <p>Password</p>
+            <input type = "text" name = "password" placeholder = "Enter you password">
+            <p><input type = "submit" value = "Login here"></p>
+        </form>
+       
+    </body>
+</html>

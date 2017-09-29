@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="Pokes" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h2>Welcome, {{curUser.first_name}} !!! <a href="/logout">logout</a></h2>
+        <p>{{curUser.got.all.count}} People poked you!</p>
+        {%for user in otherUsers%}
+                <p>{{user.first_name}} poked you {{user.gave.all.count}} times!!</p>
+        {%endfor%}
+        <h3>People you may want to poke:</h3>
+        {%for user in otherUsers%}
+            <p>Name: {{user.first_name}} {{user.last_name}}  |  Alias: {{user.alias}} |  Email Address: {{user.email}}  |  Poke History:  {{user.got.all.count}} pokes  |  <a href="/poke/addpoke/{{user.id}}">POKE</a></p>
+        {%endfor%}
+    </body>
+</html>
